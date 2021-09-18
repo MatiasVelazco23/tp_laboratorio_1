@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1632001688 source:/home/matias/Escritorio/Progylabo/TPs/tptest/main.c
+1632002613 source:/home/matias/Escritorio/Progylabo/TPs/tptest/main.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>

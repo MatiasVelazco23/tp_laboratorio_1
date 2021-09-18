@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
@@ -65,7 +64,7 @@ int main()
 
     do
     {
-        if(flagOpcInc==1 || isdigit((char)opciones)||opciones<1 && opciones>5 || (char)isspace(opciones))
+        if(flagOpcInc==1 || isdigit((char)opciones)||opciones<1 && opciones>5))
         {
             printf("\nError: Esta no es una opción válida.\n\n");
             printf("Recuerde ingresar una opción entre los números 1 y 5: \n");
