@@ -1,6 +1,0 @@
-# depslib dependency file v1.0
-1632199803 source:/home/matias/Escritorio/Progylabo/TPs/tptest/main.c
-	<stdio.h>
-	<stdlib.h>
-	<ctype.h>
-
