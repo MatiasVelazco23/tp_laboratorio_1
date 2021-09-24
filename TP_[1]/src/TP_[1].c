@@ -260,15 +260,7 @@ int main()
                         printf("e)Falta el 1er operador para poder realizar el factorial de A.\n El factorial de %.0f es demasiado grande para mostarse :( \n", operador2);
                         }
                         }
-                        else if(((operador2-(int)operador2)!=0) && flagSeCalculo==0){
-                            printf("e)Falta el 1er operando para poder realizar el factorial de A.\n El factorial de %.2f todavía no se calculó seleccione la opción 3 y vuelve a seleccionar la opción 4 para verlo. \n",operador2);
-
-                        }
-                        else{
-                        printf("e)Falta el 1er operando para poder realizar el factorial de A.\n El factorial de %.0f todavía no se calculó seleccione la opción 3 y vuelve a seleccionar la opción 4 para verlo. \n",operador2);
-                        }
-                        flagNoSeIngresoOperador=0; //sé que estas banderas son innecesarias, pero por miedo a que me dé algún error las dejo.
-
+                    break;
                     case 2:
                     	printf("Los resultados son: \n");
                         printf("a)Falta el 2do operador para poder realizar la suma, vuelva al menú y seleccione la opción 2.\n");
@@ -294,17 +286,8 @@ int main()
 
                         }
                         }
-                        else if(((operador1-(int)operador1)!=0) && flagSeCalculo==0){
-                        printf("e)El factorial de %.2f todavía no se calculó seleccione la opción 3 y vuelve a seleccionar la opción 4 para verlo. \nFalta el 2do operador para poder realizar el factorial de B. \n",operador1);
 
-                        }
-                        else{
-                        printf("e)El factorial de %.0f todavía no se calculó seleccione la opción 3 y vuelve a seleccionar la opción 4 para verlo. \nFalta el 2do operador para poder realizar el factorial de B. \n",operador1);
-                        }
-
-
-                        flagNoSeIngresoOperador=0;
-
+                    break;
 
                     case 3:
                     	printf("Los resultados son: \n");
