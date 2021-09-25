@@ -67,29 +67,37 @@ int main()
     float operador1;
     float operador2;
 
-    //variables para las funciones y resultados.
+    //variables para las funciones(para guardar los valores de retorno) y resultados de las operaciones.
     float resultadoSuma;
     float resultadoResta;
     float resultadoDivision;
     float resultadoMultiplicacion;
-    float resultadoFactorialA; // hacer JUEVES
-    float resultadoFactorialB; // hacer JUEVES
+    float resultadoFactorialA;
+    float resultadoFactorialB;
     int resultadoDivisionError;
     int resultadoMultiplicacionError;
     int resultadoFactorialAError;
     int resultadoFactorialBError;
 
+    //variables para verificar si se ingresaron los operadores
     int flagIngresoOperador1=0;
     int flagIngresoOperador2=0;
-    //int flagNoEsUnNumero=0; flag para validar si los operadores
+
+    // variable para los casos en los que no se ingreso operador1 y 2
     int flagNoSeIngresoOperador=0;
+
+    //variable utilizada para verificar si se calculó, antes de mostrar
     int flagSeCalculo=0;
-    //flag para salir del programa.
+
+    //variable para salir del programa.
     int flagSalir=0;
-    //flag para ingreso de opción incorrecta.
+
+    //variable para ingreso de opción incorrecta.
     int flagOpcInc=0;
+
     //variable para seleccionar los casos del switch.
-    char opciones;
+    int opciones;
+
     // variable seguir para opción 3 y 4 de opciones.
     char seguir= 's';
 
@@ -145,7 +153,7 @@ int main()
                 printf("Recuerde ingresar una opción entre los números 1 y 5: ");
                 __fpurge(stdin);
 
-                opciones=getchar();
+                scanf("%d", &opciones);
                 printf("\n");
                 flagOpcInc=0;
 
@@ -156,7 +164,7 @@ int main()
             {
                 printf("Ingrese a continuación el número de la opción que eligió: ");
                 __fpurge(stdin);
-                opciones=getchar();
+                scanf("%d", &opciones);
                 printf("\n");
                 flagOpcInc=0;
 
@@ -164,7 +172,7 @@ int main()
 
             switch(opciones)
             {
-            case '1':
+            case 1:
 
                 printf("Ingrese 1er operando: ");
                 scanf("%f", &operador1);
@@ -172,7 +180,7 @@ int main()
                 flagIngresoOperador1=1;
 
                 break;
-            case '2':
+            case 2:
                 printf("Ingrese 2do operando: ");
                 __fpurge(stdin);
                 scanf("%f", &operador2);
@@ -181,7 +189,7 @@ int main()
                 flagOpcInc=0;
 
                 break;
-            case '3':
+            case 3:
                 do
                 {
                 	   if((flagIngresoOperador1==1) || (flagIngresoOperador2==1)){
@@ -204,7 +212,7 @@ int main()
                     seguir=getchar();
                 }while(seguir!='s');
                 break;
-            case '4':
+            case 4:
                 do
                 {
 
@@ -260,6 +268,16 @@ int main()
                         printf("e)Falta el 1er operador para poder realizar el factorial de A.\n El factorial de %.0f es demasiado grande para mostarse :( \n", operador2);
                         }
                         }
+                        else if (flagSeCalculo==0 && ((operador2-(int)operador2==0))){
+                            printf("e)Falta el 1er operador para poder realizar el factorial de A.\n El factorial de %.0f todavía no se calculó.\n", operador2);
+
+                        }
+                        else
+                        {
+                            printf("e)Falta el 1er operador para poder realizar el factorial de A.\n El factorial de %.2f todavía no se calculó. \n", operador2);
+
+                        }
+                        flagSeCalculo=0;
                     break;
                     case 2:
                     	printf("Los resultados son: \n");
@@ -286,7 +304,16 @@ int main()
 
                         }
                         }
+                        else if (flagSeCalculo==0 && ((operador1-(int)operador1==0))){
+                            printf("e)El factorial de %.0f todavía no se calculó. Falta el 2do operador para poder realizar el factorial de B \n", operador1);
 
+                        }
+                        else
+                        {
+                            printf("e)El factorial de %.2f todavía no se calculó. Falta el 2do operador para poder realizar el factorial de B \n", operador1);
+
+                        }
+                        flagSeCalculo=0;
                     break;
 
                     case 3:
@@ -296,14 +323,14 @@ int main()
                         printf("c)Faltan ambos operadores para realizar la división, vuelva al menú y selecciónelos.\n");
                         printf("d)Faltan ambos operadores para realizar la multiplicación, vuelva al menú y selecciónelos.\n");
                         printf("e)Faltab ambos operadores para factorizar.\n");
-                        flagNoSeIngresoOperador=0;
+
                         break;
                     case 4:
                         printf("a)No se calculó la suma, vuelve al menú y selecciona la opción 3.\n");
                         printf("b)No se calculó la resta, vuelve al menú y selecciona la opción 3.\n");
                         printf("c)No se calculó la división, vuelve al menú y selecciona la opción 3.\n");
                         printf("d)No se calculó la multiplicación, vuelve al menú y selecciona la opción 3.\n");
-                        printf("e)No se calculo el factorial ni de a ni de b, vuelva al menú y selecciona la opcion3.\n");
+                        printf("e)No se calculo el factorial ni de a ni de b, vuelva al menú y selecciona la opción 3.\n");
                         break;
 
                     default:
@@ -510,7 +537,7 @@ int main()
                 }while(seguir!='s');
 
                 break;
-            case '5':
+            case 5:
                 printf("Usted ha decidido salir del programa");
                 flagSalir=1;
 

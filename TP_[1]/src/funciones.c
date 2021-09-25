@@ -2,7 +2,7 @@
  * funciones.c
  *
  *  Created on: 24 sep. 2021
- *      Author: matias
+ *      Author: Matías
  */
 
 #include "funciones.h"
@@ -29,115 +29,115 @@ float calculoResta(float n1, float n2)
     return resultadoResta;
 }
 
-float calculoDivision(float n1, float n2, float* resultadoDiv)
+float calculoDivision(float n1, float n2, float* pResultadoDiv)
 {
-    float resultadoDivOk;
-    int   resultadoDivError=0;
+    float resultadoDiv_Ok;
+    int   resultadoDiv_Error=0;
 
-    if(n2!=0 && resultadoDiv!=NULL )
+    if(n2!=0 && pResultadoDiv!=NULL )
     {
 
-        resultadoDivOk=n1/n2;
-        (*resultadoDiv)=resultadoDivOk;
-            resultadoDivError=0;
+        resultadoDiv_Ok=n1/n2;
+        (*pResultadoDiv)=resultadoDiv_Ok;
+            resultadoDiv_Error=0;
 
     }
 
-    else if (resultadoDiv!=NULL && (n1<0 && n2==0)){
-    	resultadoDivOk=0;
-    	(*resultadoDiv)=resultadoDivOk;
-    	resultadoDivError=2;      //devuelve 2, esto es para evitar que resultado=0 no sea resultado=-0, porque uso float
+    else if (pResultadoDiv!=NULL && (n1<0 && n2==0)){
+    	resultadoDiv_Ok=0;
+    	(*pResultadoDiv)=resultadoDiv_Ok;
+    	resultadoDiv_Error=2;      //devuelve 2, esto es para evitar que resultado=0 no sea resultado=-0, porque uso float
     }
 
     else{
-    resultadoDivError=1;  //  devuelve 1 si se intenta dividir por 0
+    resultadoDiv_Error=1;  //  devuelve 1 si se intenta dividir por 0
     }
-    return resultadoDivError;
+    return resultadoDiv_Error;
 }
 
-float calculoMultiplicacion(float n1, float n2, float* resultadoMultiplicacion)
+float calculoMultiplicacion(float n1, float n2, float* pResultadoMultiplicacion)
 {
-    float resultadoMultiplicacionOk;
-    int resultadoMultiplicacionError=-1;
+    float resultadoMultiplicacion_Ok;
+    int resultadoMultiplicacion_Error=-1;
 
-   if(resultadoMultiplicacion!=NULL){
-        resultadoMultiplicacionOk=n1*n2;
-    	(*resultadoMultiplicacion)=resultadoMultiplicacionOk;
-    	resultadoMultiplicacionError=0;
+   if(pResultadoMultiplicacion!=NULL){
+        resultadoMultiplicacion_Ok=n1*n2;
+    	(*pResultadoMultiplicacion)=resultadoMultiplicacion_Ok;
+    	resultadoMultiplicacion_Error=0;
     }
-   else if (resultadoMultiplicacion!=NULL && (n1<0 && n2==0)){
+   else if (pResultadoMultiplicacion!=NULL && (n1<0 && n2==0)){
 
-    resultadoMultiplicacionOk=0;
-    	(*resultadoMultiplicacion)=resultadoMultiplicacionOk;
-    	resultadoMultiplicacionError=1;
+    resultadoMultiplicacion_Ok=0;
+    	(*pResultadoMultiplicacion)=resultadoMultiplicacion_Ok;
+    	resultadoMultiplicacion_Error=1;
    }
 
    else{
-	    resultadoMultiplicacionOk=0;
-	    	(*resultadoMultiplicacion)=resultadoMultiplicacionOk;
-	    	resultadoMultiplicacionError=2;
+	    resultadoMultiplicacion_Ok=0;
+	    	(*pResultadoMultiplicacion)=resultadoMultiplicacion_Ok;
+	    	resultadoMultiplicacion_Error=2;
 
    }
 
-    return resultadoMultiplicacionError;
+    return resultadoMultiplicacion_Error;
 }
 
-float calculoFactorialA(float n1, float* resultadoFacA){
-	int i;
-	float resultadoFactorialAOk=1;
-	int resultadoFactorialAError;
-	if(resultadoFacA!=NULL && (n1-(int)n1==0)&& (n1>0 && n1<13)){
+float calculoFactorialA(float n1, float* pResultadoFacA){
+	int i; //  vara para la iteración del for
+	float resultadoFactorialA_Ok=1;
+	int resultadoFactorialA_Error;
+	if(pResultadoFacA!=NULL && (n1-(int)n1==0)&& (n1>0 && n1<13)){
 	for(i=1; i<=n1;i++){
-		resultadoFactorialAOk=resultadoFactorialAOk*i;
-		*(resultadoFacA)=resultadoFactorialAOk;
-		resultadoFactorialAError=0; // todoo salió bien, caso 0
+		resultadoFactorialA_Ok=resultadoFactorialA_Ok*i;
+		*(pResultadoFacA)=resultadoFactorialA_Ok;
+		resultadoFactorialA_Error=0; // todoo salió bien, caso 0
     }
 	}
-	else if(resultadoFacA!=NULL && n1==0){  // esto está bien
-	resultadoFactorialAOk=1;
-		*(resultadoFacA)=resultadoFactorialAOk;
-		resultadoFactorialAError=1; // en caso de que n1 sea 0.... darle valor 1 y darle valor 1 a la dirección de memoria
+	else if(pResultadoFacA!=NULL && n1==0){  // esto está bien
+	resultadoFactorialA_Ok=1;
+		*(pResultadoFacA)=resultadoFactorialA_Ok;
+		resultadoFactorialA_Error=1; // en caso de que n1 sea 0.... darle valor 1 y darle valor 1 a la dirección de memoria
 	}
 	else if(n1-(int)n1!=0){
-	resultadoFactorialAError=2; // si no es entero, darle valor 2
+	resultadoFactorialA_Error=2; // si no es entero, darle valor 2
 	}
 	else if(n1<0){
-	resultadoFactorialAError=3; // decir que es negativo, case 3
+	resultadoFactorialA_Error=3; // decir que es negativo, case 3
 	}
 	else{
-	resultadoFactorialAError=4; // si es mayor a 12, caso default, decir que es demasiado grande
+	resultadoFactorialA_Error=4; // si es mayor a 12, caso default, decir que es demasiado grande
 	}
 
-	return resultadoFactorialAError;
+	return resultadoFactorialA_Error;
 }
 
-float calculoFactorialB(float n2, float* resultadoFacB){
+float calculoFactorialB(float n2, float* pResultadoFacB){
 	int i;
-	float resultadoFactorialBOk=1;
-	int resultadoFactorialBError=0;
-	if(resultadoFacB!=NULL && (n2-(int)n2==0)&& (n2>0 && n2<13)){
+	float resultadoFactorialB_Ok=1;
+	int resultadoFactorialB_Error=0;
+	if(pResultadoFacB!=NULL && (n2-(int)n2==0)&& (n2>0 && n2<13)){
 	for(i=1; i<=n2;i++){
-		resultadoFactorialBOk=resultadoFactorialBOk*i;
-		*(resultadoFacB)=resultadoFactorialBOk;
-		resultadoFactorialBError=0; // todoo salió bien, caso 0
+		resultadoFactorialB_Ok=resultadoFactorialB_Ok*i;
+		*(pResultadoFacB)=resultadoFactorialB_Ok;
+		resultadoFactorialB_Error=0; // todoo salió bien, caso 0
     }
 	}
-	else if(resultadoFacB!=NULL && n2==0){  //
-	resultadoFactorialBOk=1;
-		*(resultadoFacB)=resultadoFactorialBOk;
-		resultadoFactorialBError=1; // en caso de que n1 sea 0.... darle valor 1 y darle valor 1 a la dirección de memoria
+	else if(pResultadoFacB!=NULL && n2==0){  //
+	resultadoFactorialB_Ok=1;
+		*(pResultadoFacB)=resultadoFactorialB_Ok;
+		resultadoFactorialB_Error=1; // en caso de que n1 sea 0.... darle valor 1 y darle valor 1 a la dirección de memoria
 	}
 	else if((n2-(int)n2!=0) && n2!=0){
-	resultadoFactorialBError=2; // si no es entero, darle valor 2
+	resultadoFactorialB_Error=2; // si no es entero, darle valor 2
 	}
 	else if(n2<0){
-	resultadoFactorialBError=3; // decir que es negativo, case 3
+	resultadoFactorialB_Error=3; // decir que es negativo, case 3
 	}
 	else{
-	resultadoFactorialBError=4; // si es mayor a 12, caso default, decir que es demasiado grande
+	resultadoFactorialB_Error=4; // si es mayor a 12, caso default, decir que es demasiado grande
 	}
 
-	return resultadoFactorialBError;
+	return resultadoFactorialB_Error;
 
 }
 
